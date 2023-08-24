@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################
-# Author: Abhishek
+# Author: Piyush Agrawal
 # Version: v1
 #
 #
@@ -11,7 +11,7 @@
 #
 ################################
 
-if [ ${#@} -lt 2 ]; then
+if [ ${#@} -lt 2 ]; then                        #this will make sure that user should pass the necessary expressions that are required if he does not provide the required input then it will throw an ERROR
     echo "usage: $0 [your github token] [REST expression]"
     exit 1;
 fi
@@ -19,10 +19,10 @@ fi
 GITHUB_TOKEN=$1
 GITHUB_API_REST=$2
 
-GITHUB_API_HEADER_ACCEPT="Accept: application/vnd.github.v3+json"
+GITHUB_API_HEADER_ACCEPT="Accept: application/vnd.github.v3+json"      #can get this info from the api documents from the github 
 
 temp=`basename $0`
-TMPFILE=`mktemp /tmp/${temp}.XXXXXX` || exit 1
+TMPFILE=`mktemp /tmp/${temp}.XXXXXX` || exit 1                        #can store all the data into the variable
 
 
 function rest_call {
